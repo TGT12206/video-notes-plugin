@@ -1,0 +1,100 @@
+:root {
+	--exit-button-color: rgb(116, 26, 26);
+}
+.vbox {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+}
+.hbox {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+}
+button.remove-button {
+	background-color: var(--exit-button-color);
+}
+.video-note-main-div {
+	height: 100%;
+	color: var(--caret-color);
+	font-family: var(--font-text);
+	font-size: var(--font-text-size);
+}
+.video-note-controls {
+	padding: 1vh;
+	gap: 1vh;
+	height: 10%;
+	width: 100%;
+}
+.video-note-top-controls {
+	width: 100%;
+}
+.video-note-controls-filler {
+	width: 100%;
+}
+.video-note-left-controls {
+	width: 50%;
+	justify-content: start;
+}
+.video-note-right-controls {
+	width: 50%;
+	justify-content: end;
+}
+.video-note-right-controls input {
+	width: 5%;
+}
+.video-note-main-div .video-time-slider {
+	width: 100%;
+	height: 1vh;
+	color: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+}
+.video-note-main-div .video-time-slider:hover {
+	cursor: pointer;
+}
+.video-note-main-div :is(button, input, textarea) {
+	color: var(--caret-color);
+	font-family: var(--font-text);
+	font-size: var(--font-text-size);
+	scrollbar-width: 0;
+}
+.video-note-main-div button:hover {
+	cursor: pointer;
+}
+.video-note-main-div button:not(.add-button) {
+	aspect-ratio: 1;
+	height: 4vh;
+	width: 4vh;
+}
+.video-note-main-div button.add-button {
+	width: 100%;
+	align-self: center;
+}
+.video-note {
+	color: var(--color-base-00);
+	border: solid var(--color-base-50);
+	border-radius: 1vh;
+	padding: 0.5vh;
+	gap: 0.5vh;
+}
+.video-note-highlighted {
+	border-style: solid;
+	border-radius: 1vh;
+	border-width: 5px;
+	border-color: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+}
+.video-note-input {
+	width: 100%;
+}
+video.video-note-video {
+	width: 100%;
+	height: 60%;
+	align-self: center;
+}
+.video-notes-list-wrapper {
+	overflow-y: scroll;
+	height: 30%;
+	gap: 0.5vh;
+}
+.video-notes-list {
+	gap: 0.5vh;
+}
