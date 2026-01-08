@@ -1,5 +1,6 @@
-import { VideoNoteView, VIEW_TYPE_VIDEO_NOTE, VIDEO_NOTE_EXTENSION, VideoNoteDTO } from 'video-note-view';
-import { App, Notice, Plugin, PluginSettingTab, Setting, TFile, WorkspaceLeaf } from 'obsidian';
+import { VideoNoteView, VIEW_TYPE_VIDEO_NOTE, VIDEO_NOTE_EXTENSION } from 'plugin-specific/video-note-view';
+import { Notice, Plugin, WorkspaceLeaf } from 'obsidian';
+import { VideoNotes } from 'plugin-specific/structures/video-notes';
 
 export default class VideoNote extends Plugin {
 	async onload() {
@@ -13,9 +14,9 @@ export default class VideoNote extends Plugin {
 
 		this.addCommand({
 			id: 'new-video-note',
-			name: 'Create New Video Note',
+			name: 'Create new video note',
 			callback: async () => {
-				const newFile = await this.app.vault.create('Untitled.' + VIDEO_NOTE_EXTENSION, JSON.stringify(new VideoNoteDTO()));
+				const newFile = await this.app.vault.create('Untitled.' + VIDEO_NOTE_EXTENSION, JSON.stringify(new VideoNotes()));
 				this.app.workspace.getLeaf('tab').openFile(newFile);
 			}
 		});
@@ -23,10 +24,10 @@ export default class VideoNote extends Plugin {
 		this.registerEvent(
             this.app.workspace.on('file-menu', (menu, file) => {
 				menu.addItem((item) => {
-					item.setTitle('New Video Note')
+					item.setTitle('New video note')
 						.setIcon('play')
 						.onClick(async () => {
-							const newFile = await this.app.vault.create((file.parent === null ? '' : file.parent.path + '/') + 'Untitled.' + VIDEO_NOTE_EXTENSION, JSON.stringify(new VideoNoteDTO()));
+							const newFile = await this.app.vault.create((file.parent === null ? '' : file.parent.path + '/') + 'Untitled.' + VIDEO_NOTE_EXTENSION, JSON.stringify(new VideoNotes()));
 							this.app.workspace.getLeaf('tab').openFile(newFile);
 						});
 				});

@@ -1,1 +1,1 @@
-
+An obsidian plugin that adds a new vnote file type, which opens a simple subtitle editor for video/audio files in your vault.
